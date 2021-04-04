@@ -1,0 +1,67 @@
+html{
+    font-family: 'roboto', sans-serif;
+}
+header{
+    display:flex;
+    justify-content: center;  
+}
+#logo{
+    width:150px;
+}
+.h2One{
+    text-align: center;
+}
+.form{
+    display:none;
+    justify-content:center;
+    margin-top:20px;
+}
+.card-body{
+    text-align: center;
+}
+.AddaBook{
+    display: flex;
+    justify-content:center;
+}
+
+#buttonAddBook {
+    border: none;
+    color: white;
+    padding: 8px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 5px 5px 5px 5px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #008CBA; 
+    color: white;
+}
+ 
+#buttonAddBook:hover {
+    background-color: rgb(0, 243, 211);
+    color: white;
+  }
+
+#button-cancel{
+display:none;
+}
+
+#bookslist{
+    display:flex;
+    justify-content:center;
+}
+.bookcard{
+    margin-right:10px;
+    margin-left:10px;
+    margin-top:20px;
+    text-align:left;
+    padding:20px;
+}
+
+.bookcard img{
+    
+    bottom:0px;
+}
