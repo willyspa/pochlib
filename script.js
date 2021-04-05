@@ -1,11 +1,12 @@
-const addBook = document.getElementById('buttonAddBook');
+const addBook = document.getElementsByClassName('btn--search')[0];
 const addABookArea = document.getElementsByClassName('AddaBook');
 const formTitle = document.getElementById('titleInput');
 const formAuthor = document.getElementById('authorInput');
-const cancelButton = document.getElementById('button-cancel');
-const bookslist = document.getElementById('bookslist');
-const bookmarkslist = document.getElementById('bookmarkslist');
+const cancelButton = document.getElementsByClassName('btn--cancel')[0];
+const bookslist = document.getElementsByClassName('searchList__books')[0];
+const bookmarkslist = document.getElementsByClassName('searchList__bookmarks')[0];
 const form = document.getElementsByClassName("form")[0];
+const searchLisTitle = document.getElementsByClassName("searchList__title")[0];
 
 const myApiKey = "AIzaSyCcZ7XkGbP2iLw8M0Z_A20ivlf_wWJr0cY";
 const searchLink = "https://www.googleapis.com/books/v1/volumes?q=";
@@ -34,6 +35,7 @@ requestOneBook.onreadystatechange = function(){
 };
 
 addBook.addEventListener('click', function() {
+    
     addBook.style.display="none";
     form.style.display="flex";
     cancelButton.style.display="flex";
@@ -43,6 +45,7 @@ addBook.addEventListener('click', function() {
 cancelButton.addEventListener('click',function(){
     addBook.style.display="flex";
     form.style.display="none";
+    searchLisTitle.style.display="none"; 
     cancelButton.style.display="none";
     bookslist.innerHTML="";
 });
@@ -72,7 +75,7 @@ function deleteBookmark(id){
 
 form.addEventListener('submit',function(event){
     event.preventDefault();// avoid page refresh 
-    
+    searchLisTitle.style.display="flex"; 
     bookslist.innerHTML= "";
     this.searchedBook = formTitle.value;
     this.searchedAuthor = formAuthor.value;
@@ -97,11 +100,13 @@ function displayBook(books) {
             
             console.log(id+"|titre:"+title+"|auteur:"+author+"|descritpion:"+description+"|imagelink:"+imageLink);
             
+
             bookslist.innerHTML += bookCard(id,title,author,description,imageLink,bookmark);
         }        
     }
     else{
-        alert('aucun livres trouvés');        
+        alert("aucun");
+        bookslist.innerHTML += "<h3 style='text-align:center'>Aucun livre trouvés</h3>";        
     }
   }
 function displayBookmark(book){

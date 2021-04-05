@@ -8,53 +8,56 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="style.css">
 	  </head>
 
 	<header>
-		<img id="logo"src="img/logo.svg" alt="Poch'Lib Logo">
+		<img class="logo"src="img/logo.svg" alt="Poch'Lib Logo">
 	</header>
 
   	<body>
-		<div id="myBooks">
+		<div class="myBooks">
 		<!-- <h1 class="title">Poch'Lib</h1> -->	
 			<h2 class="h2One">Nouveau Livre</h2>
 
 			<div class="AddaBook">
-			<button id="buttonAddBook">Ajouter un livre</button><br/>
-			<button type="Rechercher" id="button-cancel" class="btn btn-danger">Annuler</button>
+			<button class="btn btn--search">Ajouter un livre</button><br/>
+			
 			</div>
 
-			<div class="form row">
-				<div class="card bg-light mb-3" style="max-width: 18rem;">		
-					<div class="card-body">
+			<div class="form">
+						
+					
 					  <form style="height:0%">
 						<div class="form-group">
 						 
-						  <input type="text" class="form-control" id="titleInput" placeholder="Titre du livre" >					 
+						  <input type="text" class="form-control" id="titleInput" pattern=".{8,}" placeholder="Titre du livre" >					 
 						</div>
 						<div class="form-group">
 						  
-						  <input type="text" class="form-control" id="authorInput" placeholder="Auteur" >
+						  <input type="text" class="form-control" id="authorInput" pattern=".{8,}" placeholder="Auteur" >
 						</div>
-						<button type="Rechercher" class="btn btn-primary">Rechercher</button>						
+						<button type="submit" class="btn btn--search" >Rechercher</button>
+						
 					  </form>
-					</div>
-				</div>
+					  <button type="Annuler" class="btn btn--cancel">Annuler</button>
+					  
 			</div>
 			
-			<hr>
+			
 
-			<div id="content">
-
-				<h2 style="text-align: center;">Titre</h2>
-				<div class="row" id="bookslist">
-				<!-- booklist-->
+			<div class="searchList">
+				<div class="searchList__title">
+					<hr>
+					<h2 >Resultats de recherche</h2>
+				</div>
+				
+				<div class="searchList__books">
+					<!-- booklist-->
 				</div>
 				<hr>
-				<h2 style="text-align: center;">Bookmarks</h2>
-				<div class="row" id="bookmarkslist">
+				<h4 style="text-align: center;">Ma poch'liste</h4>
+				<div class="searchList__bookmarks">
 					<!-- bookmarkslist-->
 				</div>
 			</div>

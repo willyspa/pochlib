@@ -1,0 +1,123 @@
+$logoWidth:150px;
+$primaryColor:#008CBA;
+$primaryColorHover:rgb(0, 243, 211);
+$cancelColor:#ba0600;
+$cancelColorHover:#ff0800;
+
+html{
+    font-family: 'roboto', sans-serif;
+}
+header{
+    display:flex;
+    justify-content: center;
+        .logo{
+            width:$logoWidth;
+        }
+}
+body{
+    padding:10px;
+    .myBooks{
+        text-align: center;            
+    }
+}
+
+.btn{
+    display:flex;
+    justify-content: center;
+    border-radius: 5px 5px 5px 5px;
+    text-align: center;
+    padding: 8px 32px;
+    text-decoration: none;     
+    border: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    color: white;
+    width:200px;
+       
+    &--search {
+                 
+        background-color:$primaryColor; 
+        transition-duration: 0.4s;
+    
+        &:hover{
+            background-color:$primaryColorHover;
+        }
+    }
+    &--cancel {
+                 
+        background-color:$cancelColor; 
+        transition-duration: 0.4s;
+        display:none;
+    
+        &:hover{
+            background-color: $cancelColorHover;
+        }
+    }
+}
+.AddaBook{
+    display: flex;
+    justify-content:center;
+}
+
+.form{
+
+    flex-direction: column;
+    display:none;
+    justify-content:left;
+    margin-top:20px;
+    text-align: left;
+    
+
+    .form-group{
+        
+        input{
+            border-radius: 5px 5px 5px 5px;
+            text-align: left;
+            font-size: 16px;
+            margin: 4px 2px;
+            padding: 5px;;
+            width:100%;
+            box-sizing: border-box;            
+        }
+    }
+
+}
+.searchList{
+    width:100%;
+    &__title{
+        display:none;
+        flex-direction: column;
+        hr{
+            width:100%;
+        }
+    }
+    &__books{
+        display: flex;
+        flex-wrap: wrap;
+        align-content:flex-start;
+        
+    }
+    &__bookmarks{
+        display: flex;
+        flex-wrap: wrap;
+        align-content:flex-start;
+        
+    }
+}
+
+.bookcard{
+    margin-right:10px;
+    margin-left:10px;
+    margin-top:20px;
+    text-align:left;
+    padding:20px;
+    width:300px;
+    border-radius: 5px;
+    border:solid 1px grey;
+    img{
+        width:100%;
+    }
+}
+
+
