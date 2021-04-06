@@ -1,9 +1,6 @@
-$logoWidth:150px;
-$primaryColor:#008CBA;
-$primaryColorHover:rgb(0, 243, 211);
-$cancelColor:#ba0600;
-$cancelColorHover:#ff0800;
 
+@import "./utils/variables";
+@import "./utils/mixins";
 html{
     font-family: 'roboto', sans-serif;
 }
@@ -22,18 +19,7 @@ body{
 }
 
 .btn{
-    display:flex;
-    justify-content: center;
-    border-radius: 5px 5px 5px 5px;
-    text-align: center;
-    padding: 8px 32px;
-    text-decoration: none;     
-    border: none;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    color: white;
-    width:200px;
+    @include btn-params;
        
     &--search {
                  
@@ -72,19 +58,16 @@ body{
     .form-group{
         
         input{
-            border-radius: 5px 5px 5px 5px;
-            text-align: left;
-            font-size: 16px;
-            margin: 4px 2px;
-            padding: 5px;;
-            width:100%;
-            box-sizing: border-box;            
+            @include input-params;
         }
     }
 
 }
 .searchList{
     width:100%;
+    display: flex;
+    flex-direction: column;
+    
     &__title{
         display:none;
         flex-direction: column;
@@ -93,28 +76,17 @@ body{
         }
     }
     &__books{
-        display: flex;
-        flex-wrap: wrap;
-        align-content:flex-start;
+        @include card-flex;
         
     }
     &__bookmarks{
-        display: flex;
-        flex-wrap: wrap;
-        align-content:flex-start;
+        @include card-flex;
         
     }
 }
 
 .bookcard{
-    margin-right:10px;
-    margin-left:10px;
-    margin-top:20px;
-    text-align:left;
-    padding:20px;
-    width:300px;
-    border-radius: 5px;
-    border:solid 1px grey;
+    @include bookcard-params;
     img{
         width:100%;
     }

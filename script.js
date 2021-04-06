@@ -53,18 +53,14 @@ cancelButton.addEventListener('click',function(){
 function bookmark(id,isLoading){
 
     if(sessionStorage.getItem(id) != null && isLoading === false){
-        alert("Ce livre est déjà présent dans le marque pages.");     
-    }else{
-        
+        alert("Vous ne pouvez ajouter deux fois le même livre");     
+    }else{       
         if(id != null){
             sessionStorage.setItem(id,id);
-            console.log("********VALEUR DE: "+id);
             requestOneBook.open("GET", bookRequest+id);
             requestOneBook.send();       
            }
     }  
-
-   //    console.log( sessionStorage.getItem('salut'));
 };
 
 function deleteBookmark(id){
@@ -74,7 +70,7 @@ function deleteBookmark(id){
 }
 
 form.addEventListener('submit',function(event){
-    event.preventDefault();// avoid page refresh 
+    event.preventDefault();
     searchLisTitle.style.display="flex"; 
     bookslist.innerHTML= "";
     this.searchedBook = formTitle.value;
@@ -92,7 +88,6 @@ function displayBook(books) {
         for(let i = 0;i < books.length;i++){
             let bookmark = false;
             let id = books[i].id;
-   //         let identifier = checkIdentifier(books[i].volumeInfo.industryIdentifiers);
             let title = books[i].volumeInfo.title;
             let author = books[i].volumeInfo.authors;
             let description = limitDescription(books[i].volumeInfo.description);       
@@ -100,13 +95,11 @@ function displayBook(books) {
             
             console.log(id+"|titre:"+title+"|auteur:"+author+"|descritpion:"+description+"|imagelink:"+imageLink);
             
-
             bookslist.innerHTML += bookCard(id,title,author,description,imageLink,bookmark);
         }        
     }
     else{
-        alert("aucun");
-        bookslist.innerHTML += "<h3 style='text-align:center'>Aucun livre trouvés</h3>";        
+        bookslist.innerHTML += "<h3 style='text-align:center;width:100%'>Aucun livre trouvés</h3>";        
     }
   }
 function displayBookmark(book){
@@ -130,8 +123,6 @@ window.onload = function(){
         console.log("onload:"+i+"/"+id);
         requestOneBook.open("GET", bookRequest+id, false);
         requestOneBook.send();
-          
-       // bookmark(id,true);
     }
 };
 
@@ -170,14 +161,14 @@ function bookCard(id,title,author,description,imageLink,bookmark){
     let string_of_html;
     
     if(!bookmark){
-        string_of_html = '<div class="card bookcard col-10 col-sm-12 col-md-3 col-lg-2">';
-        string_of_html +='<span onclick="bookmark(\''+id+'\','+bookmark+')" style ="color:blue;text-align:right;" class="material-icons bookmark">bookmark</span>';
+        string_of_html = '<div class="card bookcard">';
+        string_of_html +='<span onclick="bookmark(\''+id+'\','+bookmark+')" style ="color:blue;text-align:right;width:100%" class="material-icons bookmark">bookmark</span>';
     }else{
-        string_of_html = '<div class="card bookcard col-10 col-sm-12 col-md-3 col-lg-2" id="'+id+'">';
-        string_of_html +='<span onclick="deleteBookmark(\''+id+'\')" style ="color:blue;text-align:right;" class="material-icons bookmark">delete</span>';
+        string_of_html = '<div class="card bookcard" id="'+id+'">';
+        string_of_html +='<span onclick="deleteBookmark(\''+id+'\')" style ="color:blue;text-align:right;width:100%" class="material-icons bookmark">delete</span>';
     }
     
-    string_of_html +='<h6 class="card-title"><strong>Titre: '+title+'</strong></h6>';
+    string_of_html +='<h2 class="card-title">Titre: <strong>'+title+'</strong></h2>';
     string_of_html +='<span class="card-title"><strong><i class="title">id :'+id+'</i></strong></span><br/>';
     string_of_html +='<span class="card-title author"><i>Auteur: </i>'+author+'</span><br/>';
     string_of_html +='<p class="card-text description">description: '+description+'</p>';

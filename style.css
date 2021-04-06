@@ -71,6 +71,8 @@ body .myBooks {
 
 .searchList {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .searchList__title {
   display: none;
@@ -82,12 +84,10 @@ body .myBooks {
 .searchList__books {
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start;
 }
 .searchList__bookmarks {
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start;
 }
 
 .bookcard {

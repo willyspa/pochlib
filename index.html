@@ -30,12 +30,12 @@
 					
 					  <form style="height:0%">
 						<div class="form-group">
-						 
-						  <input type="text" class="form-control" id="titleInput" pattern=".{8,}" placeholder="Titre du livre" >					 
+						  <span>Titre du livre</span>
+						  <input type="text" class="form-control" id="titleInput" pattern=".{1,}" placeholder="Titre du livre" >					 
 						</div>
 						<div class="form-group">
-						  
-						  <input type="text" class="form-control" id="authorInput" pattern=".{8,}" placeholder="Auteur" >
+						  <span>Auteur</span>
+						  <input type="text" class="form-control" id="authorInput" placeholder="Auteur" >
 						</div>
 						<button type="submit" class="btn btn--search" >Rechercher</button>
 						
@@ -55,8 +55,11 @@
 				<div class="searchList__books">
 					<!-- booklist-->
 				</div>
-				<hr>
-				<h4 style="text-align: center;">Ma poch'liste</h4>
+				
+				<div class="searchList__bookmark_title">
+					<hr>
+					<h2 style="text-align: center;">Ma poch'liste</h2>
+				</div>
 				<div class="searchList__bookmarks">
 					<!-- bookmarkslist-->
 				</div>
