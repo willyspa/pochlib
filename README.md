@@ -6,6 +6,6 @@ Réalisation la librairie Poch’Lib, une application de gestion de livres comma
 
 #### Instructions d'installation
 
--Cloner le repertoire
--executer le fichier index.html avec le navigateur de votre choix.
+- Cloner le repertoire.
+- Executer le fichier index.html avec le navigateur de votre choix.
 
