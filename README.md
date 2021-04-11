@@ -21,3 +21,10 @@ Ce site web se décompose en deux fonctionnalités principales :
 - Cloner le repertoire.
 - Executer le fichier index.html avec le navigateur de votre choix.
 
+
+#### Modifier le sass
+
+- Vérifier que node.js est installé avec la commande "npm --v", si ce n'est pas le cas rendez vous [ici](https://www.npmjs.com/get-npm) .
+- Vérifier que Sass est installé avec la commande "sass --version" si ce n'est pas le cas installer le avec Installer "npm install -g sass"
+- vérifier que  le fichier "package.json" dans la partie script>sass correspond à "--watch ./sass/main.scss:./public/css/style.css" avec "./sass/main.scss" étant le fichier à compiler et "./public/css/style.css" le lieu ou le fichier doit être compilé
+- Executer sass avec la commande "npm run sass" 
