@@ -68,6 +68,7 @@ body{
     display: flex;
     flex-direction: column;
     
+    
     &__title{
         display:none;
         flex-direction: column;
@@ -77,10 +78,12 @@ body{
     }
     &__books{
         @include card-flex;
+        justify-content: center;
         
     }
     &__bookmarks{
         @include card-flex;
+        justify-content: center;
         
     }
 }

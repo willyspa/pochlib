@@ -84,10 +84,12 @@ body .myBooks {
 .searchList__books {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .searchList__bookmarks {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 @media (max-width: 400px) {
