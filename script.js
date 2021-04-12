@@ -16,7 +16,7 @@ let request = new XMLHttpRequest();
 let requestOneBook = new XMLHttpRequest();
 
 
-  
+ //api request to google with a books list as a response 
 request.onreadystatechange = function(){
     if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
         let response = JSON.parse(this.responseText);
@@ -25,7 +25,7 @@ request.onreadystatechange = function(){
         displayBook(bookslist);
     }
 };
-
+//api request to google with a book as a reponse
 requestOneBook.onreadystatechange = function(){
     if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
         let response = JSON.parse(this.responseText);
@@ -33,14 +33,14 @@ requestOneBook.onreadystatechange = function(){
         displayBookmark(response);
     }
 };
-
+//on click the button "ajouter un livre" is removed and the form is displayed
 addBook.addEventListener('click', function() {    
     addBook.style.display="none";
     form.style.display="flex";
     cancelButton.style.display="flex";
 
 });
-
+//on click the button "annuler" is removed with the booklist 
 cancelButton.addEventListener('click',function(){
     addBook.style.display="flex";
     form.style.display="none";
@@ -48,7 +48,7 @@ cancelButton.addEventListener('click',function(){
     cancelButton.style.display="none";
     bookslist.innerHTML="";
 });
-
+//add a bookmark on the storage session and the dom
 function bookmark(id,isLoading){
 
     if(sessionStorage.getItem(id) != null && isLoading === false){
