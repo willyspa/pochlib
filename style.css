@@ -90,15 +90,29 @@ body .myBooks {
   flex-wrap: wrap;
 }
 
-.bookcard {
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-top: 20px;
-  text-align: left;
-  padding: 20px;
-  width: 300px;
-  border-radius: 5px;
-  border: solid 1px grey;
+@media (max-width: 400px) {
+  .bookcard {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    text-align: left;
+    padding: 20px;
+    width: 300px;
+    border-radius: 5px;
+    border: solid 1px grey;
+  }
+}
+@media (max-width: 1920px) {
+  .bookcard {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    text-align: left;
+    padding: 20px;
+    width: 400px;
+    border-radius: 5px;
+    border: solid 1px grey;
+  }
 }
 .bookcard img {
   width: 100%;

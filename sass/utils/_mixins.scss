@@ -17,16 +17,31 @@
     color: white;
     width:200px;
 }
+
 @mixin bookcard-params{
-    margin-right:10px;
-    margin-left:10px;
-    margin-top:20px;
-    text-align:left;
-    padding:20px;
-    width:300px;
-    border-radius: 5px;
-    border:solid 1px grey;
+    @media (max-width: 400px) {
+        margin-right:10px;
+        margin-left:10px;
+        margin-top:20px;
+        text-align:left;
+        padding:20px;
+        width:300px;
+        border-radius: 5px;
+        border:solid 1px grey;
+    }
+
+    @media (max-width: 1920px) {
+        margin-right:10px;
+        margin-left:10px;
+        margin-top:20px;
+        text-align:left;
+        padding:20px;
+        width:400px;
+        border-radius: 5px;
+        border:solid 1px grey;
+    }
 }
+
 @mixin input-params{
     border-radius: 5px 5px 5px 5px;
     text-align: left;
