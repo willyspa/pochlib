@@ -34,8 +34,7 @@ requestOneBook.onreadystatechange = function(){
     }
 };
 
-addBook.addEventListener('click', function() {
-    
+addBook.addEventListener('click', function() {    
     addBook.style.display="none";
     form.style.display="flex";
     cancelButton.style.display="flex";
@@ -53,35 +52,37 @@ cancelButton.addEventListener('click',function(){
 function bookmark(id,isLoading){
 
     if(sessionStorage.getItem(id) != null && isLoading === false){
-        alert("Vous ne pouvez ajouter deux fois le même livre");     
-    }else{       
-        if(id != null){
+        alert("Vous ne pouvez ajouter deux fois le même livre");  
+
+    }else if(id != null){ 
             sessionStorage.setItem(id,id);
             requestOneBook.open("GET", bookRequest+id);
             requestOneBook.send();       
-           }
+           
     }  
 };
-
+// delete a book from the storage session and from the dom
 function deleteBookmark(id){
     delete sessionStorage[id];
     let bookmarkcard = document.getElementById(id);
     bookmarkcard.remove();
 }
 
+//Request the user input from
 form.addEventListener('submit',function(event){
     event.preventDefault();
-    searchLisTitle.style.display="flex"; 
     bookslist.innerHTML= "";
     this.searchedBook = formTitle.value;
     this.searchedAuthor = formAuthor.value;
 
-    if(this.searchedBook != "" || this.searchedAuthor !=""){
+    if(this.searchedBook != "" || this.searchedAuthor != ""){
+        searchLisTitle.style.display="flex"; 
         request.open("GET", searchLink+this.searchedBook+" "+this.searchedAuthor);
         request.send();       
     }
 });
 
+//call the bookCard function and insert card in the searched list
 function displayBook(books) {
     if(books != null){
 
@@ -99,9 +100,10 @@ function displayBook(books) {
         }        
     }
     else{
-        bookslist.innerHTML += "<h3 style='text-align:center;width:100%'>Aucun livre trouvés</h3>";        
+        bookslist.innerHTML += "<h3 style='text-align:center;width:100%'>Aucun livre n’a été trouvé</h3>";        
     }
   }
+//call the bookCard function and insert card in the bookmark list
 function displayBookmark(book){
 
         let bookmark = true;
@@ -116,6 +118,7 @@ function displayBookmark(book){
         bookmarkslist.innerHTML += bookCard(id,title,author,description,imageLink,bookmark);
 }
 
+//launched when the page is loading and request for registered bookmark
 window.onload = function(){
     for (var i = 0; i < sessionStorage.length; i++){
         
@@ -126,7 +129,7 @@ window.onload = function(){
     }
 };
 
-  
+// limit the description to 200 characters  
 function limitDescription(text){
     let maxLength = 200;
     
@@ -141,6 +144,7 @@ function limitDescription(text){
     }
 }
 
+// check if an image was delivered after a request
 function checkImageLink(image){
     if(image != null){
         return image.thumbnail;
@@ -149,6 +153,7 @@ function checkImageLink(image){
     }
 }
 
+//check if the identifier is null
 function checkIdentifier(id){
     if(id != null){
         return id[0].identifier;
@@ -157,6 +162,7 @@ function checkIdentifier(id){
     }
 }
 
+// Generation of the html to create book card or bookmark card
 function bookCard(id,title,author,description,imageLink,bookmark){
     let string_of_html;
     
