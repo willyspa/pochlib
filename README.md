@@ -1,6 +1,7 @@
 # Poch'Lib
 
-Réalisation la librairie Poch’Lib, une application de gestion de livres commandée par “La plume enchantée”. “La plume enchantée” est une librairie.
+Réalisation de l'application Poch’Lib, une application de gestion de livres commandée par la librairie “La plume enchantée”. 
+Elle souhaite créer une application pour permettre aux clients de chercher des livres en ligne, puis de venir les récupérer à la librairie.
 
 L’application est à réaliser en Single Page Application (une seule page), et doit être responsive avec au moins 3 formats différents :
 
