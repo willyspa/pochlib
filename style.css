@@ -102,7 +102,7 @@ body .myBooks {
     border: solid 1px grey;
   }
 }
-@media (max-width: 1920px) {
+@media (min-width: 400px) {
   .bookcard {
     margin-right: 10px;
     margin-left: 10px;
